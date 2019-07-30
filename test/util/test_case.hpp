@@ -130,7 +130,7 @@ namespace ngraph
                 add_expected_output(expected_shape, value);
             }
 
-            void run();
+            void run(size_t tolerance_bits = DEFAULT_FLOAT_TOLERANCE_BITS);
 
         private:
             template <typename T>
@@ -147,6 +147,7 @@ namespace ngraph
                     std::cout << get_results_str<T>(expected, result, expected.size());
                 }
 
+                NGRAPH_INFO << m_tolerance_bits;
                 return ngraph::test::all_close_f(expected, result, m_tolerance_bits);
             }
 

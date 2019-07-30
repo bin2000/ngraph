@@ -19,8 +19,9 @@
 #include "gtest/gtest.h"
 #include "ngraph/assertion.hpp"
 
-void ngraph::test::NgraphTestCase::run()
+void ngraph::test::NgraphTestCase::run(size_t tolerance_bits)
 {
+    m_tolerance_bits = tolerance_bits;
     const auto& function_results = m_function->get_results();
     NGRAPH_CHECK(m_expected_outputs.size() == function_results.size(),
                  "Expected number of outputs is different from the function's number of results.");

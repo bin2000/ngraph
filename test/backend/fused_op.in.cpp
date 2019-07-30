@@ -51,7 +51,7 @@ NGRAPH_TEST(${BACKEND_NAME}, elu)
     test_case.add_input(vector<float>{0.5f});
     test_case.add_expected_output(
         vector<float>{-0.432332358f, 3.f, -0.432332358f, 1.f, -0.316060279f, 0.f});
-    test_case.run();
+    test_case.run(DEFAULT_FLOAT_TOLERANCE_BITS);
 }
 
 NGRAPH_TEST(${BACKEND_NAME}, elu_negative_alpha)

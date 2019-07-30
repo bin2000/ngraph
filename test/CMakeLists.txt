@@ -390,6 +390,7 @@ endif()
 if (NGRAPH_INTERPRETER_ENABLE)
     target_compile_definitions(unit-test PRIVATE NGRAPH_INTERPRETER_ENABLE)
     target_link_libraries(unit-test PRIVATE interpreter_backend)
+    set_property(SOURCE backend/fused_op_INTERPRETER.cpp APPEND PROPERTY COMPILE_DEFINITIONS DEFAULT_FLOAT_TOLERANCE_BITS=15)
 endif()
 
 if (NGRAPH_GPU_ENABLE)
